@@ -89,3 +89,22 @@ c.delete()
 
 #./manage.py createsuperuser
 #powiadamiamy aplikację admin, że Question mają interfejs admina - rejestrujemy model w admin.py
+
+#uwaga na django 1.8.6!!! plik settings.py jest ze starego frameworka 1.7
+#nie ma tam chociażby TEMPLATES
+#używam django 1.8.5
+
+#przygotowujemy szablon dla strony admina
+#w korzeniu projektu (tam gdzie manage.py) tworzymy foldery templates/admin
+#kopiujemy tam plik base.html ze ścieżki django (ścieżka podaje lib):
+#~/projects/py_projects/virtualenvs/official/lib/python3.4/site-packages/django/contrib/admin/templates/admin/base_site.html
+#kopiujemy też index.html
+#mamy zmienną szablonu app_list - zainstalowane aplikacje django
+#sposób na sprawdzenie ścieżki
+#nie rozumiem co ma dać ten krok, wycinamy tylko pusty string - pierwszy element ścieżki
+#import sys
+#sys.path = sys.path[1:]
+import django
+print(django.__path__)
+
+#jeśli APP_DIRS = True to w wypadku braku szablonów django szuka w templates każdej danej aplikacji
